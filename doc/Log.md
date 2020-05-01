@@ -24,4 +24,38 @@
 1. script/oltpbenchmark
 > git clone https://github.com/oltpbenchmark/oltpbench.git ，用这个来测试，没有参考价值
 
-2. 
+2. insert 
+```
+void InsertTuple(storage::DataTable *table, type::AbstractPool *pool,
+                 oid_t tilegroup_count_per_loader,
+                 UNUSED_ATTRIBUTE uint64_t thread_itr) {
+  
+  auto &txn_manager = concurrency::TransactionManagerFactory::GetInstance();
+
+  oid_t tuple_count = tilegroup_count_per_loader * TEST_TUPLES_PER_TILEGROUP;
+
+  // Start a txn for each insert
+  
+  auto txn = txn_manager.BeginTransaction();
+  
+  std::unique_ptr<storage::Tuple> tuple(
+      TestingExecutorUtil::GetTuple(table, ++loader_tuple_id, pool));
+
+  std::unique_ptr<executor::ExecutorContext> context(
+      new executor::ExecutorContext(txn));
+
+  planner::InsertPlan node(table, std::move(tuple));
+
+  // Insert the desired # of tuples
+  for (oid_t tuple_itr = 0; tuple_itr < tuple_count; tuple_itr++) {
+    
+    executor::InsertExecutor executor(&node, context.get());
+    
+    executor.Execute();
+  
+  }
+
+  txn_manager.CommitTransaction(txn);
+
+}
+```
