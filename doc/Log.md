@@ -60,11 +60,5 @@ void InsertTuple(storage::DataTable *table, type::AbstractPool *pool,
 }
 ```
 
-3. init table
-tess/storage/temp_table_test.cpp
-
-    1. create schema
-    2. create table
-    3. create tuple by schema
-    4. set value of tuple
-    5. insert into table.
+3. init database and table
+executor/update_test.cpp
