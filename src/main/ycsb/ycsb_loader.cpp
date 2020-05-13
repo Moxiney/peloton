@@ -9,8 +9,8 @@
 // Copyright (c) 2015-16, Carnegie Mellon University Database Group
 //
 //===----------------------------------------------------------------------===//
-#include "benchmark/sample/ycsb_loader.h"
-#include "benchmark/sample/ycsb_configuration.h"
+#include "benchmark/ycsb/ycsb_loader.h"
+#include "benchmark/ycsb/ycsb_configuration.h"
 
 #include <memory>
 #include <string>

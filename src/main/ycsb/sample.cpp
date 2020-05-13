@@ -1,9 +1,9 @@
 #include <iostream>
 
 #include "benchmark/benchmark_common.h"
-#include "benchmark/sample/benchmark_sample.h"
-#include "benchmark/sample/ycsb_configuration.h"
-#include "benchmark/sample/ycsb_loader.h"
+#include "benchmark/ycsb/benchmark_sample.h"
+#include "benchmark/ycsb/ycsb_configuration.h"
+#include "benchmark/ycsb/ycsb_loader.h"
 #include "common/logger.h"
 #include "storage/data_table.h"
 
