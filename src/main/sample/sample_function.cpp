@@ -1,4 +1,4 @@
-#include "benchmark/benchmark_sample.h"
+#include "benchmark/sample/benchmark_sample.h"
 
 #include <iostream>
 
