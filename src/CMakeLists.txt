@@ -62,6 +62,13 @@ set_target_properties(peloton-bin PROPERTIES OUTPUT_NAME peloton)
 
 ##################################################################################
 
+# # --[ ycsb
+# file(GLOB_RECURSE ycsb_srcs ${PROJECT_SOURCE_DIR}/src/main/ycsb/*.cpp)
+# add_executable(ycsb EXCLUDE_FROM_ALL ${ycsb_srcs})
+# target_link_libraries(ycsb peloton)
+
+add_executable(sample ${PROJECT_SOURCE_DIR}/src/main/sample.cpp)
+
 # --[ logger
 #file(GLOB_RECURSE logger_srcs ${PROJECT_SOURCE_DIR}/src/main/logger/*.cpp)
 #list(APPEND logger_srcs ${ycsb_srcs})
@@ -82,3 +89,7 @@ foreach(exe_name ${EXE_LIST})
     endif ()
 endforeach()
 
+# # --[ benchmark
+
+# add_custom_target(benchmark)
+# add_dependencies(benchmark ycsb)
