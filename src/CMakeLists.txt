@@ -67,9 +67,9 @@ set_target_properties(peloton-bin PROPERTIES OUTPUT_NAME peloton)
 # add_executable(ycsb EXCLUDE_FROM_ALL ${ycsb_srcs})
 # target_link_libraries(ycsb peloton)
 
-file(GLOB_RECURSE sample_srcs ${PROJECT_SOURCE_DIR}/src/main/sample/*.cpp)
-add_executable(sample EXCLUDE_FROM_ALL ${sample_srcs})
-target_link_libraries(sample peloton)
+file(GLOB_RECURSE ycsb_srcs ${PROJECT_SOURCE_DIR}/src/main/sample/*.cpp)
+add_executable(ycsb EXCLUDE_FROM_ALL ${ycsb_srcs})
+target_link_libraries(ycsb peloton)
 
 # --[ logger
 #file(GLOB_RECURSE logger_srcs ${PROJECT_SOURCE_DIR}/src/main/logger/*.cpp)
