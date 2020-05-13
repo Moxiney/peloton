@@ -3,6 +3,7 @@
 #include "benchmark/benchmark_common.h"
 #include "benchmark/sample/benchmark_sample.h"
 #include "benchmark/sample/ycsb_configuration.h"
+#include "benchmark/sample/ycsb_loader.h"
 #include "common/logger.h"
 #include "storage/data_table.h"
 
@@ -11,6 +12,11 @@ namespace benchmark {
 namespace ycsb {
 
 configuration state;
+
+void RunBenchmark() {
+    LOG_INFO("Start YCSB benchmark");
+    return;
+}
 
 }
 }  // namespace benchmark
@@ -29,7 +35,7 @@ int main(int argc, char **argv) {
 
   peloton::benchmark::ycsb::ParseArguments(argc, argv, peloton::benchmark::ycsb::state);
 
-  std::cout << peloton::benchmark::ycsb::ycsb_database_oid << std::endl;
+  peloton::benchmark::ycsb::RunBenchmark();
 
   return 0;
 }
