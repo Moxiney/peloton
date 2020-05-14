@@ -4,6 +4,8 @@
 #include "benchmark/ycsb/benchmark_sample.h"
 #include "benchmark/ycsb/ycsb_configuration.h"
 #include "benchmark/ycsb/ycsb_loader.h"
+#include "benchmark/ycsb/ycsb_workload.h"
+
 #include "common/logger.h"
 #include "storage/data_table.h"
 
@@ -15,6 +17,9 @@ configuration state;
 
 void RunBenchmark() {
     LOG_INFO("Start YCSB benchmark");
+
+    // CreateYCSBDatabase();
+    LOG_INFO("DB and Table created");
     return;
 }
 

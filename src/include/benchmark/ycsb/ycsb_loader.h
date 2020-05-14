@@ -26,6 +26,8 @@ void CreateYCSBDatabase();
 void LoadYCSBDatabase();
 void LoadYCSBRows(const int begin_rowid, const int end_rowid);
 
+void DropYCSBDatabase();
+
 }  // namespace ycsb
 }  // namespace benchmark
 }  // namespace peloton

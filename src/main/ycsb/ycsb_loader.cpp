@@ -206,6 +206,22 @@ void LoadYCSBDatabase() {
 
 }
 
+void DropYCSBDatabase() {
+  LOG_INFO("database shutting down");
+  auto catalog = catalog::Catalog::GetInstance();
+  auto &txn_manager = concurrency::TransactionManagerFactory::GetInstance();
+  auto txn = txn_manager.BeginTransaction();
+  
+  // drop database
+  catalog->DropDatabaseWithOid(txn, ycsb_database_oid);
+  txn_manager.CommitTransaction(txn);
+  
+  // clear ptr
+  delete ycsb_database;
+  ycsb_database = nullptr;
+  user_table = nullptr;
+}
+
 }  // namespace ycsb
 }  // namespace benchmark
 }  // namespace peloton
