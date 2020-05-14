@@ -18,8 +18,11 @@ configuration state;
 void RunBenchmark() {
     LOG_INFO("Start YCSB benchmark");
 
-    // CreateYCSBDatabase();
+    CreateYCSBDatabase();
     LOG_INFO("DB and Table created");
+
+    DropYCSBDatabase();
+    LOG_INFO("DB dropped");
     return;
 }
 

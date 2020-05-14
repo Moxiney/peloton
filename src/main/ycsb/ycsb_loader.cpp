@@ -50,6 +50,8 @@ storage::Database *ycsb_database = nullptr;
 
 storage::DataTable *user_table = nullptr;
 
+// catalog::Catalog *catalog = nullptr;
+
 void CreateYCSBDatabase() {
   const oid_t col_count = state.column_count + 1;
   const bool is_inlined = false;
@@ -61,6 +63,7 @@ void CreateYCSBDatabase() {
   delete ycsb_database;
   ycsb_database = nullptr;
   user_table = nullptr;
+  // catalog = nullptr;
 
   auto catalog = catalog::Catalog::GetInstance();
   ycsb_database = new storage::Database(ycsb_database_oid);
@@ -207,19 +210,24 @@ void LoadYCSBDatabase() {
 }
 
 void DropYCSBDatabase() {
-  LOG_INFO("database shutting down");
-  auto catalog = catalog::Catalog::GetInstance();
-  auto &txn_manager = concurrency::TransactionManagerFactory::GetInstance();
-  auto txn = txn_manager.BeginTransaction();
+  // LOG_INFO("database shutting down");
+  // //auto catalog = catalog::Catalog::GetInstance();
+  // PELOTON_ASSERT(catalog != nullptr);
+  // auto &txn_manager = concurrency::TransactionManagerFactory::GetInstance();
+  // auto txn = txn_manager.BeginTransaction();
   
-  // drop database
-  catalog->DropDatabaseWithOid(txn, ycsb_database_oid);
-  txn_manager.CommitTransaction(txn);
+  // // drop database
+  // LOG_INFO("dropping database");
+  // catalog->DropDatabaseWithOid(txn, ycsb_database_oid);
+  // txn_manager.CommitTransaction(txn);
+  // LOG_INFO("database dropped");
   
   // clear ptr
+  LOG_INFO("clearing ptr");
   delete ycsb_database;
   ycsb_database = nullptr;
   user_table = nullptr;
+  LOG_INFO("ptr cleared");
 }
 
 }  // namespace ycsb
