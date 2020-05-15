@@ -62,3 +62,8 @@ void InsertTuple(storage::DataTable *table, type::AbstractPool *pool,
 
 3. init database and table
 executor/update_test.cpp
+
+
+
+
+4. 从以前的peloton直接移植benchmark
