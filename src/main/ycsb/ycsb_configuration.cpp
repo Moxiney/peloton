@@ -307,7 +307,7 @@ void WriteOutput() {
         << std::left << state.profile_duration * (round_id + 1)
         << " s]: " << state.profile_throughput[round_id] << " "
         << state.profile_abort_rate[round_id] << " "
-        << state.profile_memory[round_id] << "\n";
+        << "\n";
   }
   out.flush();
   out.close();

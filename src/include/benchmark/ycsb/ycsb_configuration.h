@@ -36,7 +36,9 @@ static const oid_t user_table_pkey_index_oid = 2001;
 
 static const oid_t ycsb_field_length = 100;
 
-static const std::string ycsb_db_name = "YCSB_DB";
+static const std::string ycsb_database_name = "YCSB_DB";
+
+static const std::string ycsb_user_table = "YCSB_USER_TABLE";
 
 class configuration {
  public:
