@@ -71,6 +71,10 @@ file(GLOB_RECURSE ycsb_srcs ${PROJECT_SOURCE_DIR}/src/main/ycsb/*.cpp)
 add_executable(ycsb EXCLUDE_FROM_ALL ${ycsb_srcs})
 target_link_libraries(ycsb peloton)
 
+file(GLOB_RECURSE tpcc_srcs ${PROJECT_SOURCE_DIR}/src/main/tpcc/*.cpp)
+add_executable(tpcc EXCLUDE_FROM_ALL ${tpcc_srcs})
+target_link_libraries(tpcc peloton)
+
 # --[ logger
 #file(GLOB_RECURSE logger_srcs ${PROJECT_SOURCE_DIR}/src/main/logger/*.cpp)
 #list(APPEND logger_srcs ${ycsb_srcs})
