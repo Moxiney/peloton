@@ -690,7 +690,7 @@ bool RunNewOrder(const size_t &thread_id) {
     order_line_tuple->SetValue(8, type::ValueFactory::GetDecimalValue(0),
                                nullptr);
     // OL_DIST_INFO
-    order_line_tuple->SetValue(9, s_data, nullptr);
+    order_line_tuple->SetValue(9, s_data, context.get()->GetPool());
 
     planner::InsertPlan order_line_node(order_line_table,
                                         std::move(order_line_tuple));
