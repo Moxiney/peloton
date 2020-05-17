@@ -271,7 +271,7 @@ void ParseArguments(int argc, char *argv[], configuration &state) {
 
 
 void WriteOutput() {
-  std::ofstream out("outputfile.summary");
+  std::ofstream out("ycsb_outputfile.summary");
 
   oid_t total_profile_memory = 0;
   for (auto &entry : state.profile_memory) {
