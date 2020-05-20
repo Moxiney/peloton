@@ -1,3 +1,9 @@
+# install packages
+```
+    cd /script/installation
+    sudo bash packages.sh
+```
+
 # build
 
 ```
